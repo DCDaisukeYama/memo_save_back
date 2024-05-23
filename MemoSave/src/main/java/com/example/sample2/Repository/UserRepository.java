@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.example.sample2.model.User;
 
 @Repository
-public interface UserDataRepository extends JpaRepository<User, Long> {
-	User findByEmail(String email); // 特定のメールアドレスを持つユーザーを探すメソッド
+public interface UserRepository extends JpaRepository<User, Long> {
+	User findByEmail(String email);
+
+	User findByUsername(String username);
 }

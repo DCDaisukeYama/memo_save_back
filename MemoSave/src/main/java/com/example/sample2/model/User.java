@@ -1,6 +1,5 @@
 package com.example.sample2.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,26 +12,26 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(nullable = false, unique = true)
-	private String email;
-
-	@Column(nullable = false)
-	private String password;
-
-	@Column(nullable = false)
 	private String username;
+	private String email;
+	private String password;
+	private String sessionId; // セッションIDを格納するためのフィールドを追加
 
-	// Constructors, Getters and Setters
-	public User() {
-	}
-
+	// getters and setters
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getEmail() {
@@ -51,11 +50,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getSessionId() {
+		return sessionId;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 }
